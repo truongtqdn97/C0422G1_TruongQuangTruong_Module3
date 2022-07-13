@@ -12,3 +12,11 @@ id int auto_increment,
 class_name varchar(55),
 primary key (id)
 );
+
+create table teacher(
+id int auto_increment,
+teacher_name varchar(55),
+age int,
+country varchar(55),
+primary key (id)
+);
