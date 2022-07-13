@@ -20,3 +20,13 @@ age int,
 country varchar(55),
 primary key (id)
 );
+
+
+alter table student rename column name_student to `name`;
+
+insert into teacher(teacher_name, age, country) values ("ten so mot", 30, "japan"), ("ten so hai", 35, "china"), ("ten so ba", 32, "laos");
+
+select * from teacher;
+
+
+
