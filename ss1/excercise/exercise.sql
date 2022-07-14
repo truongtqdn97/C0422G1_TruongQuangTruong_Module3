@@ -1,32 +1,34 @@
-create database student_management;
-use student_management;
-create table student(
-id int not null,
-name_student varchar(45) null,
-country varchar(45) null,
-PRIMARY KEY (id)
+DROP DATABASE IF EXISTS student_management;
+CREATE DATABASE student_management;
+USE student_management;
+CREATE TABLE student (
+    id INT NOT NULL,
+    `name` VARCHAR(45) NULL,
+    country VARCHAR(45) NULL,
+    PRIMARY KEY (id)
 );
 
-create table class(
-id int auto_increment,
-class_name varchar(55),
-primary key (id)
+CREATE TABLE class (
+    id INT AUTO_INCREMENT,
+    class_name VARCHAR(55),
+    PRIMARY KEY (id)
 );
 
-create table teacher(
-id int auto_increment,
-teacher_name varchar(55),
-age int,
-country varchar(55),
-primary key (id)
+CREATE TABLE teacher (
+    id INT AUTO_INCREMENT,
+    teacher_name VARCHAR(55),
+    age INT,
+    country VARCHAR(55),
+    PRIMARY KEY (id)
 );
 
+INSERT INTO teacher(teacher_name, age, country) 
+	VALUES ("ten so mot", 30, "japan"), ("ten so hai", 35, "china"), ("ten so ba", 32, "laos");
 
-alter table student rename column name_student to `name`;
-
-insert into teacher(teacher_name, age, country) values ("ten so mot", 30, "japan"), ("ten so hai", 35, "china"), ("ten so ba", 32, "laos");
-
-select * from teacher;
+SELECT 
+    *
+FROM
+    teacher;
 
 
 
