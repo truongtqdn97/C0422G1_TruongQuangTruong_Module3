@@ -16,7 +16,7 @@ CREATE TABLE Student (
     StudentName VARCHAR(30) NOT NULL,
     Address VARCHAR(50),
     Phone VARCHAR(20),
-    Status BIT,
+    `Status` BIT,
     ClassId INT NOT NULL,
     FOREIGN KEY (ClassId)
         REFERENCES Class (ClassID)
@@ -53,9 +53,9 @@ VALUES (3, 'B3', CURRENT_DATE, 0);
 
 INSERT INTO student (studentname, address, phone, `status`, classid)
 VALUES ('Hung', 'Ha Noi', '0912113113', 1, 1);
-INSERT INTO Student (StudentName, Address, Status, ClassId)
+INSERT INTO Student (StudentName, Address, `Status`, ClassId)
 VALUES ('Hoa', 'Hai phong', 1, 1);
-INSERT INTO Student (StudentName, Address, Phone, Status, ClassId)
+INSERT INTO Student (StudentName, Address, Phone, `Status`, ClassId)
 VALUES ('Manh', 'HCM', '0123123123', 0, 2);
 
 INSERT INTO `subject`
