@@ -7,15 +7,14 @@ USE exe2;
 CREATE TABLE customer (
     c_id VARCHAR(10) PRIMARY KEY,
     c_name VARCHAR(50),
-    c_age INT,
-    CHECK (c_age >= 18)
+    c_age INT
 );
 
 CREATE TABLE `order` (
     o_id VARCHAR(10) PRIMARY KEY,
     c_id VARCHAR(10),
     o_date DATETIME NOT NULL,
-    o_total_price INT NOT NULL,
+    o_total_price INT,
     FOREIGN KEY (c_id)
         REFERENCES customer (c_id)
 );

@@ -34,9 +34,9 @@ WHERE
 SET sqL_SafE_UPDAtes = 1;
 
 -- Hiển thị các ThÔnG TIN: StudentName, SuBName, MarK. Dữ liệu sắp xếp thEo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
-select s.studentname, sub.subname, m.mark
-from student s
-	join mark m on s.StudentId = m.StudentId
-    join subject sub on m.SubId = sub.SubId
-order by m.Mark desc, s.StudentName;
+SELECT s.studentname, sub.subname, m.mark
+FROM student s
+	JOIN mark m ON s.StudentId = m.StudentId
+    JOIN subject sub ON m.SubId = sub.SubId
+ORDER BY m.Mark DESC, s.StudentName;
 
