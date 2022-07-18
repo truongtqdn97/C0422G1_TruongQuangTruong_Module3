@@ -30,6 +30,20 @@ group by dv.ma_dich_vu;
 
 -- 8.Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau.
 -- Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
+-- cach 1
+select kh.ho_ten
+from khach_hang kh
+group by kh.ho_ten;
+
+-- cach 2
+select distinct ho_ten
+from khach_hang;
+
+-- cach 3
+select ho_ten
+from khach_hang
+group by ho_ten
+having count(ho_ten) = 1;
 
 -- 9.Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2021 
 -- thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
