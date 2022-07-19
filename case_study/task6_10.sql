@@ -2,7 +2,11 @@ use case_study;
 
 -- 6.Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu của tất cả các loại dịch vụ 
 -- chưa từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
-select dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.chi_phi_thue, ldv.ten_loai_dich_vu
+select dv.ma_dich_vu, 
+	dv.ten_dich_vu, 
+    dv.dien_tich, 
+    dv.chi_phi_thue, 
+    ldv.ten_loai_dich_vu
 from dich_vu dv
 	join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
     join hop_dong hd on dv.ma_dich_vu = hd.ma_dich_vu
@@ -16,7 +20,12 @@ group by dv.ma_dich_vu;
 
 -- 7.Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue, ten_loai_dich_vu 
 -- của tất cả các loại dịch vụ đã từng được khách hàng đặt phòng trong năm 2020 nhưng chưa từng được khách hàng đặt phòng trong năm 2021.
-select dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.so_nguoi_toi_da, dv.chi_phi_thue, ldv.ten_loai_dich_vu
+select dv.ma_dich_vu, 
+	dv.ten_dich_vu, 
+    dv.dien_tich, 
+    dv.so_nguoi_toi_da,
+    dv.chi_phi_thue, 
+    ldv.ten_loai_dich_vu
 from dich_vu dv
 	join loai_dich_vu ldv on dv.ma_loai_dich_vu = ldv.ma_loai_dich_vu
     join hop_dong hd on dv.ma_dich_vu = hd.ma_dich_vu
@@ -60,7 +69,8 @@ group by kh1.ho_ten;
 
 -- 9.Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2021 
 -- thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
-select month(hd.ngay_lam_hop_dong) as thang, count(hd.ngay_lam_hop_dong) as so_luong
+select month(hd.ngay_lam_hop_dong) as thang, 
+	count(hd.ngay_lam_hop_dong) as so_luong
 from hop_dong hd
 	join khach_hang kh on hd.ma_khach_hang = kh.ma_khach_hang
     where year(hd.ngay_lam_hop_dong) = 2021
