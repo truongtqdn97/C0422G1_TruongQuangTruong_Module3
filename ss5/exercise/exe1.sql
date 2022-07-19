@@ -1,4 +1,5 @@
 drop database if exists View_Index_SP;
+
 -- Bước 1: Tạo cơ sở dữ liệu demo
 create database View_Index_SP;
 
