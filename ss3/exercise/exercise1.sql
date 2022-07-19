@@ -18,10 +18,10 @@ WHERE
 
 
 -- Hiển tHỊ TẤt cả CÁC THông tin mÔn học có credit trong khoảng từ 3-5.
-select *
-from subject
-where Credit between 3 and 5;
--- where CreDIT>=3 AnD CRedit<=5;
+SELECT *
+FROM subject
+WHERE Credit BETWEEN 3 AND 5;
+-- WHERE CreDIT>=3 AnD CRedit<=5;
 
 
 -- Thay đổi MÃ LỚP(ClASSID) của sinh viên có tên ‘Hung’ là 2.

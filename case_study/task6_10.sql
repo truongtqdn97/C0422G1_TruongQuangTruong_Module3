@@ -33,17 +33,30 @@ group by dv.ma_dich_vu;
 -- cach 1
 select kh.ho_ten
 from khach_hang kh
-group by kh.ho_ten;
+having count(ho_ten)>1;
 
 -- cach 2
 select distinct ho_ten
-from khach_hang;
+from khach_hang
+having count(ho_ten)>1;
 
 -- cach 3
 select ho_ten
-from khach_hang
-group by ho_ten
-having count(ho_ten) = 1;
+from khach_hang kh1
+where exists(
+	select *
+    from khach_hang kh2
+	where kh1.ho_ten = kh2.ho_ten
+    limit 1,1)
+group by ho_ten;
+
+-- cach 4
+select kh1.ho_ten
+from khach_hang kh1, khach_hang kh2
+where kh1.ho_ten = kh2.ho_ten
+	and kh1.ma_khach_hang <> kh2.ma_khach_hang
+group by kh1.ho_ten;
+
 
 -- 9.Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2021 
 -- thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
