@@ -1,0 +1,93 @@
+.row{
+    margin-top: 60px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: lightgrey;
+}
+/*mai lên hỏi lại*/
+
+* {
+    box-sizing: border-box;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+body{
+    background-color: white;
+}
+
+/*điều chỉnh đoạn menu*/
+ul{
+    list-style-type: none;
+}
+.menu{
+    margin-left: 300px;
+    display: block;
+}
+.menu ul, .menu li{
+    background-color: #57FFA7;
+}
+.menu li{
+    position: relative;
+    float: left;
+}
+
+.menu li a{
+    padding: 0 20px  0 20px;
+    margin: 10px;
+    width:auto;
+    height: 30px;
+    /*display: block;*/
+    text-decoration:none;
+    text-align: center;
+    line-height: 30px;
+    /*background-color: black;*/
+    color: #808080;
+    border-left: solid black;
+}
+
+.row .col-4 img{
+    width: 100%;
+}
+
+.row .col-4 {
+    padding: 10px;
+}
+
+.row .col-8 img{
+    width: 100%;
+}
+
+.row .col-8{
+    background-color: white;
+    padding: 10px;
+}
+
+footer{
+    position: absolute;
+    margin-top: 1000px;
+    height: 40px;
+    line-height: 5px;
+    text-align: center;
+    /*text-align: center;*/
+    background-color: lightgrey;
+}
