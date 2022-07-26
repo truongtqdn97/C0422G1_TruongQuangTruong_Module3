@@ -64,7 +64,11 @@ ul{
     color: #808080;
     border-left: solid black;
 }
-
+nav span{
+    padding: 0 20px  0 20px;
+    margin: 20px;
+    border-left: solid red;
+}
 .row .col-4 img{
     width: 100%;
 }
