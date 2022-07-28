@@ -1,4 +1,4 @@
-package thuc_hanh;
+package servlet;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
