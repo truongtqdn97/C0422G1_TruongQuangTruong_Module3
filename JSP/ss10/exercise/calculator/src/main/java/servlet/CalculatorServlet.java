@@ -14,15 +14,21 @@ public class CalculatorServlet extends HttpServlet {
         double number1 = Double.parseDouble(request.getParameter("number1"));
         double number2 = Double.parseDouble(request.getParameter("number2"));
         String operator = request.getParameter("operator");
-        String result;
+        double result = 0;
+        String error=null;
         try {
-            result = String.valueOf((CalculatorService.calculate(number1, number2, operator)));
+//            result = String.valueOf((CalculatorService.calculate(number1, number2, operator)));
+            result = (CalculatorService.calculate(number1, number2, operator));
         }catch (ArithmeticException e){
-            result = e.getMessage();
+            error = e.getMessage();
         }
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-        request.setAttribute("result", result);
+        if (error != null){
+            request.setAttribute("error", error);
+        }else {
+            request.setAttribute("result", result);
+        }
         requestDispatcher.forward(request,response);
 
 
