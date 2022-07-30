@@ -19,7 +19,7 @@
 </p>
 <form action="/products" method="post">
     <input type="text" name="name" placeholder="Name of product">
-    <button type="submit" value="search">Search</button>
+    <button type="submit" name="action" value="search">Search</button>
 </form>
 
 

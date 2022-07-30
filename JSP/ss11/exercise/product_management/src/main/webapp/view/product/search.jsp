@@ -15,6 +15,9 @@
 
 <h1>Product Information</h1>
 <p>
+  <a href="/products">Back to Product list</a>
+</p>
+<p>
   <c:if test="${message!=null}">
     <span>${message}</span>
   </c:if>
