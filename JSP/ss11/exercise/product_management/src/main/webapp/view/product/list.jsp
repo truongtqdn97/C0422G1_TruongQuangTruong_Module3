@@ -17,9 +17,9 @@
 <p>
     <a href="/products?action=create">Create new product</a>
 </p>
-<form action="/products" method="post">
+<form action="/products?action=search" method="post">
     <input type="text" name="name" placeholder="Name of product">
-    <button type="submit" name="action" value="search">Search</button>
+    <input type="submit" value="Search"></input>
 </form>
 
 
