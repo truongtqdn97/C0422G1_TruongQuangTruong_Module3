@@ -15,11 +15,12 @@
 
 <h1>Product Information</h1>
 <p>
-  <c:if test="${message==null}">
+  <c:if test="${message!=null}">
     <span>${message}</span>
   </c:if>
 </p>
-<c:if test="${message!=null}">
+
+<c:if test="${message==null}">
   <table border="1">
     <tr>
       <td>ID</td>
@@ -30,7 +31,7 @@
       <td>Edit</td>
       <td>Delete</td>
     </tr>
-    <c:forEach items="${productsList}" var="product">
+    <c:forEach items="${products}" var="product">
       <tr>
         <td>${product.id}</td>
         <td><a href="/products?action=view&id=${product.id}">${product.name}</a></td>
