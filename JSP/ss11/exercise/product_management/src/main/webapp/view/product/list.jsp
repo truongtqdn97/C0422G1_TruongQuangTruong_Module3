@@ -33,6 +33,15 @@
         <td>Edit</td>
         <td>Delete</td>
     </tr>
+
+    <c:if test="${message!=null}">
+        <tr>
+            <td colspan="7">
+                <p>${message}</p>
+            </td>
+        </tr>
+    </c:if>
+
     <c:forEach items="${products}" var="product">
         <tr>
             <td>${product.id}</td>
@@ -45,7 +54,11 @@
         </tr>
     </c:forEach>
 </table>
-
+<c:if test="${flag==1}">
+    <p>
+        <a href="/products">Back to Product list</a>
+    </p>
+</c:if>
 
 </body>
 </html>

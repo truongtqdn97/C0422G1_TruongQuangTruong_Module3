@@ -155,7 +155,8 @@ public class ProductServlet extends HttpServlet {
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         List<Product> products = this.productService.findByName(name);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/search.jsp");;
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/list.jsp");
+        request.setAttribute("flag", 1);
         if (products.isEmpty()){
             request.setAttribute("message", "Can not search the product");
         }else {
