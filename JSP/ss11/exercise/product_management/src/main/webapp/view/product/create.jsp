@@ -35,23 +35,23 @@
         <table>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="name" id="name"></td>
+                <td><input  required type="text" name="name" id="name"></td>
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type="text" name="price" id="price"></td>
+                <td><input required type="text" name="price" id="price"></td>
             </tr>
             <tr>
                 <td>Description</td>
-                <td><input type="text" name="description" id="description"></td>
+                <td><input required type="text" name="description" id="description"></td>
             </tr>
             <tr>
                 <td>Manufacturer</td>
-                <td><input type="text" name="manufacturer" id="manufacturer"></td>
+                <td><input required type="text" name="manufacturer" id="manufacturer"></td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Create Product"></td>
+                <td><input required type="submit" value="Create Product"></td>
             </tr>
         </table>
     </fieldset>

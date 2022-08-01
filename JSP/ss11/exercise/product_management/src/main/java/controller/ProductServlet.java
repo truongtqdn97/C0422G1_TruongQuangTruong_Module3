@@ -221,13 +221,18 @@ public class ProductServlet extends HttpServlet {
 
     private void createProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        int price = Integer.parseInt(request.getParameter("price"));
+//        int price = Integer.parseInt(request.getParameter("price"));
+        String price = request.getParameter("price");
+        int price1 = 0;
+        if (!price.equals("")){
+            price1 = Integer.parseInt(price);
+        }
         String description = request.getParameter("description");
         String manufacturer = request.getParameter("manufacturer");
         List<Product> productList = this.productService.findAll();
         int id = productList.get(productList.size()-1).getId() + 1;
 
-        Product product = new Product(id, name, price, description, manufacturer);
+        Product product = new Product(id, name, price1, description, manufacturer);
         this.productService.save(product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/product/create.jsp");
         request.setAttribute("message", "New product has been created!");
