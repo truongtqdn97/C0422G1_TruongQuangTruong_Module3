@@ -42,6 +42,31 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null){
+            action = "";
+        }
+        switch (action){
+            case "create":
+                createProduct(request, response);
+                break;
+            case "edit":
+                updateProduct(request, response);
+                break;
+            case "delete":
+                deleteProduct(request, response);
+                break;
+            case "search":
+                searchProduct(request, response);
+                break;
+            default:
+                break;
+        }
+    }
+
+
     private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
@@ -128,29 +153,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null){
-            action = "";
-        }
-        switch (action){
-            case "create":
-                createProduct(request, response);
-                break;
-            case "edit":
-                updateProduct(request, response);
-                break;
-            case "delete":
-                deleteProduct(request, response);
-                break;
-            case "search":
-                searchProduct(request, response);
-                break;
-            default:
-                break;
-        }
-    }
+
 
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
