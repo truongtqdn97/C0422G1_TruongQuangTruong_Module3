@@ -26,5 +26,5 @@ public interface IUserRepository {
 
     boolean deleteUser_SP(int id);//bt1 ss13
 
-    String addUserTransaction();
+    void addUserTransaction(User user, int[] permisions);//bt2 ss13
 }

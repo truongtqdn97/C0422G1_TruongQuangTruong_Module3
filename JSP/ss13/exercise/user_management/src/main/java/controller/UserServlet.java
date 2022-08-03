@@ -42,6 +42,9 @@ public class UserServlet extends HttpServlet {
                 case "sort":
                     sortListByName(request, response);
                     break;
+                case "permision":
+                    addUserPermision(request, response);//bt2 ss13
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -50,6 +53,8 @@ public class UserServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
+
+
 
 
     @Override
@@ -73,6 +78,16 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
+        User user = new User(3,"quan", "quan.nguyen@codegym.vn", "vn");
+        //bt2 ss13, trung id, ko tao duoc, ko tao them user permission
+        User user2 = new User(99,"quan", "quan.nguyen@codegym.vn", "vn");//bt2 ss13, trung id, ko tao duoc
+
+        int[] permision = {1, 2, 4};
+        userService.addUserTransaction(user, permision);
+        userService.addUserTransaction(user2, permision);
     }
 
     private void searchByCountry(HttpServletRequest request, HttpServletResponse response)

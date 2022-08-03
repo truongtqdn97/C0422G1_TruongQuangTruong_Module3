@@ -59,4 +59,9 @@ public class UserService implements IUserService {
     public boolean deleteUser_SP(int id) {
         return userRepository.deleteUser_SP(id);
     }
+
+    @Override
+    public void addUserTransaction(User user, int[] permisions) {
+        userRepository.addUserTransaction(user, permisions);
+    }
 }

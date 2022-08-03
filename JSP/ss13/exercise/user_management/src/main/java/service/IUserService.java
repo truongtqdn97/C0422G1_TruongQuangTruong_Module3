@@ -26,4 +26,6 @@ public interface IUserService {
 
     boolean deleteUser_SP(int id);//bt1 ss13
 
+    void addUserTransaction(User user, int[] permisions);//bt2 ss13
+
 }
