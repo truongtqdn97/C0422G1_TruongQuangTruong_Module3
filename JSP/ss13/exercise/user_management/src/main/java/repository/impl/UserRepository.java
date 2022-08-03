@@ -220,6 +220,19 @@ public class UserRepository implements IUserRepository {
         return false;
     }
 
+    @Override
+    public String addUserTransaction() {
+        String mess ="";
+        Connection connection = BaseRepository.getConnectDB();
+
+
+
+
+
+
+        return mess;
+    }
+
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {

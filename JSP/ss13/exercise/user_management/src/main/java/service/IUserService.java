@@ -20,10 +20,10 @@ public interface IUserService {
 
     List<User> sortByName();
 
-    List<User> displayUsersList();
+    List<User> displayUsersList();//bt1 ss13
 
-    boolean updateUser_SP(User user);
+    boolean updateUser_SP(User user);//bt1 ss13
 
-    boolean deleteUser_SP(int id);
+    boolean deleteUser_SP(int id);//bt1 ss13
 
 }
