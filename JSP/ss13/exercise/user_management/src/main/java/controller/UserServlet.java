@@ -83,7 +83,8 @@ public class UserServlet extends HttpServlet {
     private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
         User user = new User(3,"quan", "quan.nguyen@codegym.vn", "vn");
         //bt2 ss13, trung id, ko tao duoc, ko tao them user permission
-        User user2 = new User(99,"quan", "quan.nguyen@codegym.vn", "vn");//bt2 ss13, trung id, ko tao duoc
+        User user2 = new User(99,"quan", "quan.nguyen@codegym.vn", "vn");
+        //bt2 ss13, ko trung id, van them bth
 
         int[] permision = {1, 2, 4};
         userService.addUserTransaction(user, permision);
