@@ -44,4 +44,19 @@ public class UserService implements IUserService {
     public List<User> sortByName() {
         return userRepository.sortByName();
     }
+
+    @Override
+    public List<User> displayUsersList() {
+        return userRepository.displayUsersList();
+    }
+
+    @Override
+    public boolean updateUser_SP(User user) {
+        return userRepository.updateUser_SP(user);
+    }
+
+    @Override
+    public boolean deleteUser_SP(int id) {
+        return userRepository.deleteUser_SP(id);
+    }
 }

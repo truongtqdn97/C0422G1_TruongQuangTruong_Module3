@@ -98,7 +98,9 @@ public class UserServlet extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException{
         int id = Integer.parseInt(request.getParameter("id"));
-        userService.deleteUser(id);
+
+//        userService.deleteUser(id);
+        userService.deleteUser_SP(id);
 
         List<User> listUser = userService.selectAllUsers();
         request.setAttribute("listUser", listUser);
@@ -123,7 +125,10 @@ public class UserServlet extends HttpServlet {
 
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException{
-        List<User> listUser = userService.selectAllUsers();
+
+//        List<User> listUser = userService.selectAllUsers();
+        List<User> listUser = userService.displayUsersList();//bt 1 ss13
+
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/list.jsp");
         dispatcher.forward(request, response);
@@ -141,7 +146,10 @@ public class UserServlet extends HttpServlet {
         String country = request.getParameter("country");
 
         User book = new User(id, name, email, country);
-        userService.updateUser(book);
+
+//        userService.updateUser(book);
+        userService.updateUser_SP(book);//bt1 ss13
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/user/edit.jsp");
         dispatcher.forward(request, response);
     }

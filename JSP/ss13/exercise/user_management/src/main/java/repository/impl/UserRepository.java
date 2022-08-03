@@ -19,6 +19,11 @@ public class UserRepository implements IUserRepository {
     private static final String SELECT_USER_BY_COUNTRY = "select * from users where country like ? ;";
     private static final String SELECT_ALL_SORT_BY_NAME = "select * from users order by `name`;";
 
+    private static final String DISPLAY_USERS_LIST = "call display_users_list(); ";
+    private static final String UPDATE_USERS_SQL_SP = "call edit_users_info(?,?,?,?);";
+    private static final String DELETE_USERS_SQL_SP = "call delete_users(?);";
+
+
 
     @Override
     public void insertUser(User user) throws SQLException {
@@ -154,6 +159,65 @@ public class UserRepository implements IUserRepository {
             printSQLException(e);
         }
         return users;
+    }
+
+    @Override
+    public List<User> displayUsersList() {
+        List<User> users = new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+        CallableStatement callableStatement;
+        try {
+            callableStatement = connection.prepareCall(DISPLAY_USERS_LIST);
+            ResultSet rs = callableStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                users.add(new User(id, name, email, country));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
+
+
+
+    }
+
+    @Override
+    public boolean updateUser_SP(User user) {
+        int rowUpdated;
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            CallableStatement cs = connection.prepareCall(UPDATE_USERS_SQL_SP);
+            cs.setInt(1, user.getId());
+            cs.setString(2, user.getName());
+            cs.setString(3, user.getEmail());
+            cs.setString(4, user.getCountry());
+
+            rowUpdated = cs.executeUpdate();
+            return rowUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteUser_SP(int id) {
+        int rowDeleted;
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            CallableStatement cs = connection.prepareCall(DELETE_USERS_SQL_SP);
+            cs.setInt(1, id);
+            rowDeleted = cs.executeUpdate();
+            return rowDeleted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     private void printSQLException(SQLException ex) {
