@@ -62,7 +62,17 @@ insert into Permision(id, `name`)
 insert into Permision(id, `name`) 
 	values(4, 'view');
 
+-- +---------------------------------------------------
+-- bt ss13 JDBC Querying & Transaction
+delimiter $$
+create procedure display_users_list()
+begin
+	select *
+    from users;
+end $$
+delimiter ;
 
+call display_users_list();
 
 
 

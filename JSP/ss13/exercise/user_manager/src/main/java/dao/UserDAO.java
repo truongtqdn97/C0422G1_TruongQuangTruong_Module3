@@ -147,43 +147,24 @@ public class UserDAO implements IUserDAO {
     @Override
     public User getUserById(int id) {
         User user = null;
-
         String query = "{CALL get_user_by_id(?)}";
-
         // Step 1: Establishing a Connection
-
         try (Connection connection = getConnection();
-
              // Step 2:Create a statement using connection object
-
              CallableStatement callableStatement = connection.prepareCall(query);) {
-
             callableStatement.setInt(1, id);
-
             // Step 3: Execute the query or update query
-
             ResultSet rs = callableStatement.executeQuery();
-
-            // Step 4: Process the ResultSet object.
-
+            // Step 4: Process the ResultSet object
             while (rs.next()) {
-
                 String name = rs.getString("name");
-
                 String email = rs.getString("email");
-
                 String country = rs.getString("country");
-
                 user = new User(id, name, email, country);
-
             }
-
         } catch (SQLException e) {
-
             printSQLException(e);
-
         }
-
         return user;
     }
 
@@ -378,8 +359,6 @@ public class UserDAO implements IUserDAO {
             e.printStackTrace();
         }
     }
-
-
 
 
 

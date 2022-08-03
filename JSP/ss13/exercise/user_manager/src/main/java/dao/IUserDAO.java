@@ -26,5 +26,4 @@ public interface IUserDAO {
 
     void insertUpdateUseTransaction();//th4
 
-
 }
