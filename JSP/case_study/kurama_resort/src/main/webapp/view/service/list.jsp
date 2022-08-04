@@ -119,6 +119,7 @@ background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f
                     <td>@mdo</td>
                     <td>
                         <!-- Button trigger modal -->
+
                         <button type="button"
                                 class="btn"
                                 data-bs-toggle="modal"
@@ -262,25 +263,24 @@ background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f
     </div>
 </div>
 
-<!-- Modal       id="exampleModal${service.id}"    -->
+<%--      id="exampleModal${service.id}"--%>
 <!--Modal edit-->
-<div class="modal fade" id="exampleEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleEdit" tabindex="-1" aria-labelledby="exampleModalLabelEdit" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Deleting...</h5>
+                <h5 class="modal-title" id="exampleModalLabelEdit">Deleting...</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
                 Are you sure about that?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-primary">
-<%--                    <a href="/products?action=delete&id=${product.id}" class="text-light" style="text-decoration: none">--%>
-<%--                        Delete--%>
-<%--                    </a>--%>
+<%--&lt;%&ndash;                    <a href="/products?action=delete&id=${product.id}" class="text-light" style="text-decoration: none">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        Delete&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    </a>&ndash;%&gt;--%>
                 </button>
             </div>
         </div>
@@ -312,6 +312,15 @@ background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 
