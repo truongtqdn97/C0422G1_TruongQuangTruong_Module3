@@ -10,45 +10,18 @@
 <head>
     <title>Edit Service</title>
     <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css">
-    <style>
-        body {
-            font-family: "UTM Caviar";
-            background-size: 100%;
-            background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b3be1dae-3caa-4d45-be6c-3de586ba95e2/dejj5ue-61a65792-72fb-409c-9eb7-2a8fe8f5685e.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IzYmUxZGFlLTNjYWEtNGQ0NS1iZTZjLTNkZTU4NmJhOTVlMlwvZGVqajV1ZS02MWE2NTc5Mi03MmZiLTQwOWMtOWViNy0yYThmZThmNTY4NWUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.m_WTf7biDkbAUwKtsG_dFqvorFYK6HaPf14r0cFlPO0');
-            /*background-image: url("/img/cool-background(1).png");*/
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+    <link rel="stylesheet" href="/bootstrap-5.1.3-dist/my_style/my_style.css">
 
-        /*table {*/
-        /*    border-radius: 1em;*/
-        /*    overflow: hidden;*/
-        /*}*/
-        /*table tr td{*/
-        /*    color: white;*/
-        /*}*/
-        .info {
-            border-radius: 1em;
-            overflow: hidden;
-        }
-        table tr td{
-            width: 50%;
-        }
-    </style>
 </head>
 <body>
 <%--header--%>
-<div class="container" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="/img/icons8-traveler-100.png">
-        </div>
-        <div class="col-md-6 d-flex justify-content-md-end align-items-md-center">
-            <p class="text-light">Tên người đăng nhập</p>
-            <!--            chỉnh sửa sau-->
-        </div>
-    </div>
-</div>
+<%@ include file = "../layout/header.jsp" %>
+
+
+<%--nav bar--%>
+<%@ include file = "../layout/navbar.jsp" %>
+
+
 
 
 <div class="container d-flex justify-content-md-center" style="margin-top: 20px">
@@ -150,17 +123,17 @@
         let selectType = type.value;
         switch (selectType) {
             case "villa":
-                document.getElementById("standardRoom").style.display = "block";
-                document.getElementById("descriptionOtherConvenience").style.display = "block";
-                document.getElementById("poolArea").style.display = "block";
-                document.getElementById("number_of_floors").style.display = "block";
+                document.getElementById("standardRoom").style.display = "table-row";
+                document.getElementById("descriptionOtherConvenience").style.display = "table-row";
+                document.getElementById("poolArea").style.display = "table-row";
+                document.getElementById("number_of_floors").style.display = "table-row";
                 document.getElementById("facility_free").style.display = "none";
                 break;
             case "house":
-                document.getElementById("standardRoom").style.display = "block";
-                document.getElementById("descriptionOtherConvenience").style.display = "block";
+                document.getElementById("standardRoom").style.display = "table-row";
+                document.getElementById("descriptionOtherConvenience").style.display = "table-row";
                 document.getElementById("poolArea").style.display = "none";
-                document.getElementById("number_of_floors").style.display = "block";
+                document.getElementById("number_of_floors").style.display = "table-row";
                 document.getElementById("facility_free").style.display = "none";
                 break;
             case "room":
@@ -168,7 +141,7 @@
                 document.getElementById("descriptionOtherConvenience").style.display = "none";
                 document.getElementById("poolArea").style.display = "none";
                 document.getElementById("number_of_floors").style.display = "none";
-                document.getElementById("facility_free").style.display = "block";
+                document.getElementById("facility_free").style.display = "table-row";
                 break;
             default:
                 document.getElementById("standardRoom").style.display = "none";
