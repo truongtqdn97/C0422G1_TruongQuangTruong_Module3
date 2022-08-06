@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="/bootstrap-5.1.3-dist/my_style/my_style.css">
 
 </head>
-<body style="background-size: 100%;
-background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b3be1dae-3caa-4d45-be6c-3de586ba95e2/dejj5ue-61a65792-72fb-409c-9eb7-2a8fe8f5685e.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IzYmUxZGFlLTNjYWEtNGQ0NS1iZTZjLTNkZTU4NmJhOTVlMlwvZGVqajV1ZS02MWE2NTc5Mi03MmZiLTQwOWMtOWViNy0yYThmZThmNTY4NWUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.m_WTf7biDkbAUwKtsG_dFqvorFYK6HaPf14r0cFlPO0')">
+<body>
 <%--header--%>
 <%@ include file="../layout/header.jsp" %>
 

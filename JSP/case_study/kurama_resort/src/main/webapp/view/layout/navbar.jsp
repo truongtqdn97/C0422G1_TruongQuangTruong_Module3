@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/bootstrap-5.1.3-dist/my_style/my_style.css">
+    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/my_style/my_style.css">
+    
 </head>
 <body>
 <div class="container">
@@ -68,6 +69,6 @@
 
 
 
-<script src="../bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+<script src="../../bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

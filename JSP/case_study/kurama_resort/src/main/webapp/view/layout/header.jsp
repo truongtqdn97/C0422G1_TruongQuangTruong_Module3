@@ -9,15 +9,15 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/bootstrap-5.1.3-dist/my_style/my_style.css">
+    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/my_style/my_style.css">
 </head>
 <body>
 
 <div class="container my-3">
     <div class="row">
         <div class="col-md-6">
-            <img src="/img/icons8-traveler-100.png">
+            <img src="/img/icons8-traveler-100.png" height="50">
         </div>
         <div class="col-md-6 d-flex justify-content-md-end align-items-md-center">
             <p class="text-light">Tên người đăng nhập</p>
@@ -27,6 +27,6 @@
 </div>
 
 
-<script src="../bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+<script src="../../bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

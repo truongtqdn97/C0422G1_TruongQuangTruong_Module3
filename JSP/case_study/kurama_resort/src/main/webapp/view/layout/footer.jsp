@@ -10,19 +10,19 @@
 <head>
     <title>Title</title>
 <%--  <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">--%>
-  <link rel="stylesheet" href="/bootstrap-5.1.3-dist/my_style/my_style.css">
+  <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../../bootstrap-5.1.3-dist/my_style/my_style.css">
 </head>
 <body>
 
-<div class="mt-3" style="font-size: 13px">
+<div class="mt-3" style="font-size: 14px">
   <footer class="bg-secondary bg-gradient text-center text-lg-start text-white">
-    <!-- Grid container -->
-    <div class="container pt-md-1">
+    <div class="container-fluid pt-md-1">
       <!--Grid row-->
       <div class="row mt-1">
         <!--Grid column-->
-        <div class="col-md-3">
-          <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
+        <div class="col-md-3 mt-4">
+          <div class="rounded-circle bg-white d-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 100px; height: 100px;">
             <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" height="100%"
                  loading="lazy" />
           </div>
@@ -31,7 +31,7 @@
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-md-4">
+        <div class="col-md-3">
           <h5 class="text-uppercase mb-4">Travel Guide</h5>
 
           <ul class="list-unstyled">
@@ -52,7 +52,7 @@
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-md-5">
+        <div class="col-md-6">
           <h5 class="text-uppercase">Contact</h5>
 
           <ul class="list-unstyled">
@@ -71,7 +71,6 @@
       </div>
       <!--Grid row-->
     </div>
-    <!-- Grid container -->
 
     <!-- Copyright -->
     <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
@@ -84,7 +83,6 @@
 </div>
 
 
-
-<%--<script src="../bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>--%>
+<script src="../webapp/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
