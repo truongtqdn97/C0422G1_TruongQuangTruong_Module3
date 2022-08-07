@@ -84,7 +84,8 @@ create table khach_hang (
     so_cmnd varchar(45) not null,
     so_dien_thoai varchar(45) not null,
     email varchar(45),
-    dia_chi varchar(45)
+    dia_chi varchar(45),
+    `status` bit(1) default 1
 );
 
 create table hop_dong (
@@ -275,4 +276,5 @@ INSERT INTO `case_study`.`hOp_Dong_chi_Tiet` (`ma_hop_doNg_chI_tiet`, `ma_hoP_do
 VALUES ('7', '1', '2', '2');
 INSERT INTO `case_study`.`hOp_Dong_chi_Tiet` (`ma_Hop_donG_chi_Tiet`, `ma_hop_dong`, `ma_dich_vu_dI_kem`, `so_luong`) 
 vALUES ('8', '12', '2', '2');
+
 

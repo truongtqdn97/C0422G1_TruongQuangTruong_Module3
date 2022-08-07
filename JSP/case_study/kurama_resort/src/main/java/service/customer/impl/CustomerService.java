@@ -44,4 +44,9 @@ public class CustomerService implements ICustomerService {
     public List<CustomerType> selectCustomerType() {
         return customerRepository.selectCustomerType();
     }
+
+    @Override
+    public List<Customer> selectCustomerIncludeDeleted() {
+        return customerRepository.selectCustomerIncludeDeleted();
+    }
 }

@@ -20,4 +20,6 @@ public interface ICustomerRepository {
     List<Customer> searchByCondition();
 
     List<CustomerType> selectCustomerType();
+
+    List<Customer> selectCustomerIncludeDeleted();
 }

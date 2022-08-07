@@ -13,7 +13,9 @@ import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
 
-    private final String SELECT_ALL_CUSTOMER = "select * from khach_hang;";
+    private final String SELECT_ALL_CUSTOMER = "select * from khach_hang" +
+            " where `status` = 1 ";
+    private final String SELECT_ALL_CUSTOMER_INCLUDE_DELETED = "select * from khach_hang";
     private final String SELECT_CUSTOMER_BY_ID = "select * from khach_hang" +
                                                     "where id = ? ;";
     private final String INSERT_CUSTOMER = "insert into `khach_Hang` (" +
@@ -37,8 +39,8 @@ public class CustomerRepository implements ICustomerRepository {
             "email=?," +
             "dia_chi=? " +
             "where ma_khach_hang=?;";
-    private final String DELETE_CUSTUMER = "delete from `khach_hang` " +
-            "where (`ma_khach_hang` = ? );";
+    private final String DELETE_CUSTUMER = "UPDATE `khach_hang` " +
+            "SET `status` = 0 WHERE (`ma_khach_hang` = ?);";
 
     private final String SELECT_CUSTOMER_TYPE = "select * from loai_khach;";
 
@@ -91,6 +93,37 @@ public class CustomerRepository implements ICustomerRepository {
             e.printStackTrace();
         }
         return customerTypeList;
+    }
+
+    @Override
+    public List<Customer> selectCustomerIncludeDeleted() {
+        List<Customer> customers = new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareStatement(SELECT_ALL_CUSTOMER_INCLUDE_DELETED);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                int pId = rs.getInt(1);
+                String name = rs.getString(3);
+                LocalDate birthday = LocalDate.parse(rs.getString(4));
+//                LocalDate birthday = LocalDate.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                int gender = rs.getInt(5);
+                String identifyCard = rs.getString(6);
+                String phoneNumber = rs.getString(7);
+                String email = rs.getString(8);
+                int customerType = rs.getInt(2);
+                String address = rs.getString(9);
+//                Customer(String pId, String name, LocalDate birthday,
+//                String gender, String identifyCard,
+//                String phoneNumber, String email,
+//                int customerType, String address)
+                customers.add(new Customer(pId, name, birthday, gender, identifyCard, phoneNumber, email, customerType, address));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
     }
 
     @Override

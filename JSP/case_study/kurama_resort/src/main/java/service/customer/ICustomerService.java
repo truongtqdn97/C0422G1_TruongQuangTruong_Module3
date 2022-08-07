@@ -20,4 +20,6 @@ public interface ICustomerService {
 
     List<CustomerType> selectCustomerType();
 
+    List<Customer> selectCustomerIncludeDeleted();
+
 }
