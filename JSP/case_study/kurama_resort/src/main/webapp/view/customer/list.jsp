@@ -37,6 +37,11 @@
                 <p class="text-danger">${messageCreate}</p>
             </div>
         </c:if>
+        <c:if test="${messageUpdate!=null}">
+            <div class="col-md-6">
+                <p class="text-danger">${messageUpdate}</p>
+            </div>
+        </c:if>
     </div>
 </div>
 

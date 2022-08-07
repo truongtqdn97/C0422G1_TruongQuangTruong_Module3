@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: HP
@@ -31,42 +32,64 @@
                     <table>
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="name" id="name" class="form-control"></td>
+                            <td><input type="text" name="name"
+                                       id="name" class="form-control"
+                                       value="${customer.name}"></td>
                         </tr>
                         <tr>
                             <td>Birthday</td>
-                            <td><input type="date" name="birthday" id="area" class="form-control"></td>
+                            <td><input type="date" name="birthday"
+                                       id="birthday" class="form-control"
+                                       value="<c:out value='${customer.birthday}'/>"></td>
                         </tr>
                         <tr>
                             <td>Gender</td>
+                            <c:if test="$customer.gender==1">
                             <td>
-                                <select name="gender" id="gender" class="form-select">
+                                <select name="gender"  class="form-select">
                                     <option value="1">Male</option>
                                     <option value="0">Female</option>
                                 </select>
                             </td>
+                            </c:if>
+                            <c:if test="$customer.gender==0">
+                                <td>
+                                    <select name="gender" class="form-select">
+                                        <option value="0">Female</option>
+                                        <option value="1">Male</option>
+                                    </select>
+                                </td>
+                            </c:if>
                         </tr>
                         <tr>
                             <td>Identify Card</td>
-                            <td><input type="text" name="idCard" class="form-control"></td>
+                            <td><input type="text" name="idCard"
+                                       class="form-control"
+                                       value="<c:out value='${customer.identifyCard}'/>"></td>
                         </tr>
                         <tr>
                             <td>Phone Number</td>
-                            <td><input type="text" name="phoneNumber" class="form-control"></td>
+                            <td><input type="text" name="phoneNumber"
+                                       class="form-control"
+                                       value="<c:out value='${customer.phoneNumber}'/>"></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><input type="text" name="email" class="form-control"></td>
+                            <td><input type="text" name="email"
+                                       class="form-control"
+                                       value="<c:out value='${customer.email}'/>"></td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td><input type="text" name="address" class="form-control"></td>
+                            <td><input type="text" name="address"
+                                       class="form-control"
+                                       value="<c:out value='${customer.address}'/>"></td>
                         </tr>
                         <tr>
                             <td>Customer Type</td>
                             <td>
                                 <select name="customerType" class="form-select">
-                                    <option value="5">-Select Customer 's Type-</option>
+                                    <option value="<c:out value='${customer.customerType}'/>">-Select Customer 's Type-</option>
                                     <option value="1">Diamond</option>
                                     <option value="2">Platinum</option>
                                     <option value="3">Gold</option>

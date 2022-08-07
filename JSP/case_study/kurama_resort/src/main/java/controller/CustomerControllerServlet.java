@@ -27,13 +27,16 @@ public class CustomerControllerServlet extends HttpServlet {
             case "create":
                 showCreateForm(request, response);
                 break;
-            case "update":
+            case "updateCustomer":
+                showUpdateCustomerForm(request, response);
                 break;
             default:
                 displayCustomerList(request, response);
                 break;
         }
     }
+
+
 
 
     @Override
@@ -46,12 +49,57 @@ public class CustomerControllerServlet extends HttpServlet {
             case "create":
                 createNewCustomer(request, response);
                 break;
-            case "update":
+            case "updateCustomer":
+                updateCustomer(request, response);
                 break;
             case "removeCustomer":
                 removeCustomer(request, response);
                 break;
 
+        }
+    }
+
+    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
+        int pId = Integer.parseInt(request.getParameter("pId"));
+        String name = request.getParameter("name");
+        LocalDate birthday = LocalDate.parse(request.getParameter("birthday"));
+        int gender = Integer.parseInt(request.getParameter("gender"));
+        String idCard = request.getParameter("idCard");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int customerType = Integer.parseInt(request.getParameter("customerType"));
+        Customer customer = new Customer(pId, name, birthday, gender, idCard, phoneNumber, email, customerType, address);
+        boolean check = customerService.updateCustomer(customer);
+        String messageUpdate = "";
+        if (check){
+            messageUpdate = "Update successfully!";
+        }else messageUpdate = "Can't update!";
+        List<Customer> customerList = customerService.selectAllCustomer();
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
+        request.setAttribute("messageUpdate", messageUpdate);
+        request.setAttribute("customerList", customerList);
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showUpdateCustomerForm(HttpServletRequest request, HttpServletResponse response) {
+        int pId = Integer.parseInt(request.getParameter("pId"));
+        Customer customer = customerService.selectCustomer(pId);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/edit.jsp");
+        request.setAttribute("customer", customer);
+        request.setAttribute("pId", pId);
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

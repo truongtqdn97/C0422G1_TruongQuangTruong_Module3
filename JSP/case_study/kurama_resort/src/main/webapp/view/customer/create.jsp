@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td>Birthday</td>
-                            <td><input type="date" name="birthday" id="area" class="form-control"></td>
+                            <td><input type="date" name="birthday" id="birthday" class="form-control"></td>
                         </tr>
                         <tr>
                             <td>Gender</td>
