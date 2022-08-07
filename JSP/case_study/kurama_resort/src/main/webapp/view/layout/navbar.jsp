@@ -32,7 +32,7 @@
                                 <a class="nav-link text-light" href="#">Employee</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Customer</a>
+                                <a class="nav-link text-light" href="/customer">Customer</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownService" role="button" data-bs-toggle="dropdown" aria-expanded="false">

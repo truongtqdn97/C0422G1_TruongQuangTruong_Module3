@@ -22,6 +22,16 @@
 <%@ include file="../layout/navbar.jsp" %>
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success btn-outline-light">
+                <a class="text-decoration-none text-dark" href="#">Create new contract</a>
+            </button>
+        </div>
+    </div>
+</div>
+
 <div class="container" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-12">
@@ -138,7 +148,6 @@
         </div>
     </div>
 </form>
-
 
 
 <%--modal see attach service--%>
