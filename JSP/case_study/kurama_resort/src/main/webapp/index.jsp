@@ -65,7 +65,7 @@
                         <span>Never Stop</span>
                         <h3><strong>Exploring</strong></h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn2">Get Started</a>
+                        <a href="#" class="btn2 text-light">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                         <span>Make Tour</span>
                         <h3>Amazing</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn2">Get Started</a>
+                        <a href="#" class="btn2 text-light">Get Started</a>
                     </div>
                 </div>
             </div>

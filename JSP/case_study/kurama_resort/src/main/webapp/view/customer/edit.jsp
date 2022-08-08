@@ -44,18 +44,18 @@
                         </tr>
                         <tr>
                             <td>Gender</td>
-                            <c:if test="$customer.gender==1">
+                            <c:if test="${customer.gender==1}">
                             <td>
                                 <select name="gender"  class="form-select">
-                                    <option value="1">Male</option>
+                                    <option value="1" >Male</option>
                                     <option value="0">Female</option>
                                 </select>
                             </td>
                             </c:if>
-                            <c:if test="$customer.gender==0">
+                            <c:if test="${customer.gender==0}">
                                 <td>
                                     <select name="gender" class="form-select">
-                                        <option value="0">Female</option>
+                                        <option value="0" >Female</option>
                                         <option value="1">Male</option>
                                     </select>
                                 </td>
@@ -87,14 +87,20 @@
                         </tr>
                         <tr>
                             <td>Customer Type</td>
+
                             <td>
-                                <select name="customerType" class="form-select">
-                                    <option value="<c:out value='${customer.customerType}'/>">-Select Customer 's Type-</option>
-                                    <option value="1">Diamond</option>
-                                    <option value="2">Platinum</option>
-                                    <option value="3">Gold</option>
-                                    <option value="4">Silver</option>
-                                    <option value="5">Member</option>
+                                <select name="customerType" class="form-select" >
+
+                                   <c:forEach var="customerType" items="${customerTypeList}">
+                                       <c:choose>
+                                           <c:when test="${customer.customerType==customerType.customerTypeId}">
+                                               <option value="<c:out value='${customerType.customerTypeId}'/>" selected>${customerType.customerTypeName}</option>
+                                           </c:when>
+                                           <c:otherwise>
+                                               <option value="<c:out value='${customerType.customerTypeId}'/>">${customerType.customerTypeName}</option>
+                                           </c:otherwise>
+                                       </c:choose>
+                                   </c:forEach>
                                 </select>
                             </td>
                         </tr>

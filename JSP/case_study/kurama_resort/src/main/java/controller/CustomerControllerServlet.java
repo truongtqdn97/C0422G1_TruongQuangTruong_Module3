@@ -90,10 +90,12 @@ public class CustomerControllerServlet extends HttpServlet {
 
     private void showUpdateCustomerForm(HttpServletRequest request, HttpServletResponse response) {
         int pId = Integer.parseInt(request.getParameter("pId"));
+        List<CustomerType> customerTypeList = customerService.selectCustomerType();
         Customer customer = customerService.selectCustomer(pId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/edit.jsp");
         request.setAttribute("customer", customer);
-        request.setAttribute("pId", pId);
+        request.setAttribute("customerTypeList", customerTypeList);
+//        request.setAttribute("pId", pId);
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -148,9 +150,10 @@ public class CustomerControllerServlet extends HttpServlet {
     private void displayCustomerList(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = customerService.selectAllCustomer();
         List<CustomerType> customerTypeList = customerService.selectCustomerType();
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/customer/list.jsp");
         request.setAttribute("customerList", customerList);
         request.setAttribute("customerTypeList", customerTypeList);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/customer/list.jsp");
+
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {

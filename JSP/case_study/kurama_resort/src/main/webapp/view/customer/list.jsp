@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<div class="container" style="margin-top: 20px">
+<div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-12">
             <table class="table">
@@ -81,12 +81,11 @@
                         <td>${customer.identifyCard}</td>
                         <td>${customer.phoneNumber}</td>
                         <td>${customer.email}</td>
-                            <%--                        <c:forEach items="customerTypeList" var="customerTypeVar">--%>
-                            <%--                            <c:if test="${customer.customerType==customerTypeVar.customerTypeId}">--%>
-                            <%--                                <td>1</td>--%>
-                            <%--                                <td>${customerTypeVar.customerTypeName}</td>--%>
-                            <%--                            </c:if>--%>
-                            <%--                        </c:forEach>--%>
+                        <c:forEach items="${customerTypeList}" var="customerTypeVar">
+                            <c:if test="${customer.customerType==customerTypeVar.customerTypeId}">
+                                <td>${customerTypeVar.customerTypeName}</td>
+                            </c:if>
+                        </c:forEach>
                         <td>${customer.address}</td>
                         <td>
                             <!-- Button trigger modal -->
