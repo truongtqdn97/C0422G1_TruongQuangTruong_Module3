@@ -44,6 +44,9 @@ public class CustomerRepository implements ICustomerRepository {
 
     private final String SELECT_CUSTOMER_TYPE = "select * from loai_khach;";
 
+    private final String SEARCH_CUSTOMER_BY_NAME = "select * from khach_hang" +
+            " where (ho_ten like ? ) and (`status` = 1) ;";
+
 
     @Override
     public List<Customer> selectAllCustomer() {
@@ -225,8 +228,35 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
-    public List<Customer> searchByCondition() {
-        return null;
+    public List<Customer> searchByName(String name) {
+        List<Customer> customerList = new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareStatement(SEARCH_CUSTOMER_BY_NAME);
+            ps.setString(1, "%"+name+"%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                int pId = rs.getInt(1);
+                String nameGet = rs.getString(3);
+                LocalDate birthday = LocalDate.parse(rs.getString(4));
+//                LocalDate birthday = LocalDate.parse(rs.getString(4), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                int gender = rs.getInt(5);
+                String identifyCard = rs.getString(6);
+                String phoneNumber = rs.getString(7);
+                String email = rs.getString(8);
+                int customerType = rs.getInt(2);
+                String address = rs.getString(9);
+//                Customer(String pId, String name, LocalDate birthday,
+//                String gender, String identifyCard,
+//                String phoneNumber, String email,
+//                int customerType, String address)
+                customerList.add(new Customer(pId, nameGet, birthday, gender, identifyCard, phoneNumber, email, customerType, address));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerList;
     }
 
 

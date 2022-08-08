@@ -17,7 +17,7 @@ public interface ICustomerRepository {
 
     boolean removeCustomer(int pId);
 
-    List<Customer> searchByCondition();
+    List<Customer> searchByName(String name);
 
     List<CustomerType> selectCustomerType();
 

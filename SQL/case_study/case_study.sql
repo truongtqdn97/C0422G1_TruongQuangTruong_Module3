@@ -278,3 +278,4 @@ INSERT INTO `case_study`.`hOp_Dong_chi_Tiet` (`ma_Hop_donG_chi_Tiet`, `ma_hop_do
 vALUES ('8', '12', '2', '2');
 
 
+select * from khach_hang where `status` = 1;

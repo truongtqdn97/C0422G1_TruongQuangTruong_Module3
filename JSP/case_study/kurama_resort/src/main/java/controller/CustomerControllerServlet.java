@@ -55,8 +55,28 @@ public class CustomerControllerServlet extends HttpServlet {
             case "removeCustomer":
                 removeCustomer(request, response);
                 break;
-
+            case "search":
+                searchCustomerByName(request, response);
+                break;
         }
+    }
+
+    private void searchCustomerByName(HttpServletRequest request, HttpServletResponse response) {
+        String customerName = request.getParameter("searchName");
+        List<Customer> customerList = customerService.searchByName(customerName);
+        List<CustomerType> customerTypeList = customerService.selectCustomerType();
+        request.setAttribute("customerList", customerList);
+        request.setAttribute("customerTypeList", customerTypeList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
@@ -71,13 +91,13 @@ public class CustomerControllerServlet extends HttpServlet {
         int customerType = Integer.parseInt(request.getParameter("customerType"));
         Customer customer = new Customer(pId, name, birthday, gender, idCard, phoneNumber, email, customerType, address);
         boolean check = customerService.updateCustomer(customer);
-        String messageUpdate = "";
+        String message = "";
         if (check){
-            messageUpdate = "Update successfully!";
-        }else messageUpdate = "Can't update!";
+            message = "Update successfully!";
+        }else message = "Can't update!";
         List<Customer> customerList = customerService.selectAllCustomer();
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
-        request.setAttribute("messageUpdate", messageUpdate);
+        request.setAttribute("message", message);
         request.setAttribute("customerList", customerList);
         try {
             dispatcher.forward(request, response);
@@ -118,14 +138,14 @@ public class CustomerControllerServlet extends HttpServlet {
         int pId = customerList.get(customerList.size() - 1).getpId() + 1;
         Customer customer = new Customer(pId, name, birthday, gender, idCard, phoneNumber, email, customerType, address);
         boolean check = customerService.insertCustomer(customer);
-        String messageCreate = "";
+        String message = "";
         if (check){
-            messageCreate = "Create new Customer successfully!";
-        }else messageCreate = "Can't create new Customer!";
+            message = "Create new Customer successfully!";
+        }else message = "Can't create new Customer!";
         customerList = customerService.selectAllCustomer();
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
 
-        request.setAttribute("messageCreate", messageCreate);
+        request.setAttribute("message", message);
         request.setAttribute("customerList", customerList);
         try {
             dispatcher.forward(request, response);

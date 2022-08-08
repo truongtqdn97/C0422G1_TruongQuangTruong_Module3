@@ -11,6 +11,7 @@
 <head>
     <title>Customer Management</title>
     <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/datatables/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="/bootstrap-5.1.3-dist/my_style/my_style.css">
 </head>
 <body>
@@ -24,31 +25,33 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <a href="/customer?action=create" class="btn btn-success">Add new customer</a>
         </div>
-        <c:if test="${message!=null}">
-            <div class="col-md-6">
-                <p class="text-danger">${message}</p>
-            </div>
-        </c:if>
-        <c:if test="${messageCreate!=null}">
-            <div class="col-md-6">
-                <p class="text-danger">${messageCreate}</p>
-            </div>
-        </c:if>
-        <c:if test="${messageUpdate!=null}">
-            <div class="col-md-6">
-                <p class="text-danger">${messageUpdate}</p>
-            </div>
-        </c:if>
+        <div class="col-md-3">
+            <form>
+                <input type="text" hidden id="mess" value="${message}">
+            </form>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-end">
+            <nav>
+                <div class="container-fluid">
+                    <form action="/customer?action=search" method="post" class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                               name="searchName">
+                        <button class="btn btn-outline-success btn-light" type="submit"><strong>Search</strong></button>
+                    </form>
+                </div>
+            </nav>
+        </div>
     </div>
 </div>
 
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-12">
-            <table class="table">
+            <table id="tableCustomer" class="table" style="width: 100%">
                 <thead>
                 <tr class="table-dark">
                     <th scope="col">#</th>
@@ -60,7 +63,8 @@
                     <th scope="col">Email</th>
                     <th scope="col">Customer Type</th>
                     <th scope="col">Address</th>
-                    <th scope="col" colspan="2" style="text-align: center">Action</th>
+                    <th scope="col" style="text-align: center">Action</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -69,7 +73,7 @@
                                     String email, int customerType, String address)--%>
                 <c:forEach items="${customerList}" var="customer">
                     <tr class="table-light">
-                        <th scope="row">${customer.pId}</th>
+                        <td>${customer.pId}</td>
                         <td>${customer.name}</td>
                         <td>${customer.birthday}</td>
                         <c:if test="${customer.gender==0}">
@@ -144,6 +148,12 @@
 </div>
 
 
+
+
+
+<script src="/jquery/jquery-3.5.1.min.js"></script>
+<script src="/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 <script>
     <%--    onclick="showModalDelete('${customer.pId}','${customer.name}')"--%>
 
@@ -151,7 +161,24 @@
         document.getElementById("removeCustomerName").innerText = deleteCustomerName;
         document.getElementById("removeCustomerId").value = deleteCustomerId;
     }
+
+    $(document).ready(function () {
+        $('#tableCustomer').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+
+
+    window.onload = function () {
+        let mess = document.getElementById("mess").value;
+        if (mess != null && mess  !== "") {
+            alert(mess);
+        }
+    }
+
 </script>
-<script src="/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

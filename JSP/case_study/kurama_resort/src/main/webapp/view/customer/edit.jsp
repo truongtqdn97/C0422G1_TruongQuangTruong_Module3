@@ -44,22 +44,18 @@
                         </tr>
                         <tr>
                             <td>Gender</td>
-                            <c:if test="${customer.gender==1}">
                             <td>
                                 <select name="gender"  class="form-select">
-                                    <option value="1" >Male</option>
-                                    <option value="0">Female</option>
+                                    <c:if test="${customer.gender==1}">
+                                        <option value="1" selected>Male</option>
+                                        <option value="0">Female</option>
+                                    </c:if>
+                                    <c:if test="${customer.gender==0}">
+                                        <option value="1" >Male</option>
+                                        <option value="0" selected>Female</option>
+                                    </c:if>
                                 </select>
                             </td>
-                            </c:if>
-                            <c:if test="${customer.gender==0}">
-                                <td>
-                                    <select name="gender" class="form-select">
-                                        <option value="0" >Female</option>
-                                        <option value="1">Male</option>
-                                    </select>
-                                </td>
-                            </c:if>
                         </tr>
                         <tr>
                             <td>Identify Card</td>

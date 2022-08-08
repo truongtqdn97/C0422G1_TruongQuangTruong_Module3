@@ -16,7 +16,7 @@ public interface ICustomerService {
 
     boolean removeCustomer(int pId);
 
-    List<Customer> searchByCondition();
+    List<Customer> searchByName(String name);
 
     List<CustomerType> selectCustomerType();
 
