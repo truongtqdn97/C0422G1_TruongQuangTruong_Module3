@@ -317,4 +317,38 @@ public class FacilityRepository implements IFacilityRepository {
         }
         return facilityTypeList;
     }
+
+    @Override
+    public List<Facility> searchByName(String name) {
+        List<Facility> facilityList = new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+        Facility facility = null;
+        try {
+            PreparedStatement ps = connection.prepareStatement(SEARCH_FACILITY_BY_NAME);
+            ps.setString(1, "%"+name+"%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                int facilityId = rs.getInt(1);
+                String name1 = rs.getString(2);
+                int area = rs.getInt(3);
+                double cost = rs.getDouble(4);
+                int maxPeople = rs.getInt(5);
+                int rentTypeId = rs.getInt(6);
+                int facilityTypeId = rs.getInt(7);
+                String standardRoom = rs.getString(8);
+                String descriptionOtherConvenience = rs.getString(9);
+                double poolArea = rs.getDouble(10);
+                int numberOfFloors = rs.getInt(11);
+                String facilityFree = rs.getString(12);
+                facility = new Facility(facilityId, name1, area, cost, maxPeople,
+                        rentTypeId, facilityTypeId, standardRoom, descriptionOtherConvenience,
+                        poolArea, numberOfFloors, facilityFree);
+                facilityList.add(facility);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return facilityList;
+    }
 }

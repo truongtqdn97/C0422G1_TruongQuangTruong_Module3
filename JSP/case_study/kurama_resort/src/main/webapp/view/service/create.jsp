@@ -51,12 +51,12 @@
                         <tr>
                             <td>Rental type</td>
                             <td>
-                                <select name="rentalType" id="rentalType" class="form-select">
+                                <select name="rentType" id="rentType" class="form-select">
                                     <option value="">-Select Rental Type-</option>
-                                    <option value="year">Year</option>
-                                    <option value="month">Month</option>
-                                    <option value="day">Day</option>
-                                    <option value="hour">Hour</option>
+                                    <option value="1">Year</option>
+                                    <option value="2">Month</option>
+                                    <option value="3">Day</option>
+                                    <option value="4">Hour</option>
                                 </select>
                             </td>
                         </tr>
@@ -65,11 +65,11 @@
                         <tr>
                             <td>Service 's Type</td>
                             <td>
-                                <select name="serviceType" id="serviceType" onchange="selectServiceType(this)" class="form-select">
+                                <select name="facilityType" id="serviceType" onchange="selectServiceType(this)" class="form-select">
                                     <option value="">-Select Service 's Type-</option>
-                                    <option value="villa">Villa</option>
-                                    <option value="house">House</option>
-                                    <option value="room">Room</option>
+                                    <option value="1">Villa</option>
+                                    <option value="2">House</option>
+                                    <option value="3">Room</option>
                                 </select>
                             </td>
                         </tr>
@@ -81,19 +81,19 @@
                         </tr>
                         <tr id="descriptionOtherConvenience" style="display: none">
                             <td>Description Other Convenience</td>
-                            <td><input type="text" name="description_other_convenience" class="form-control"></td>
+                            <td><input type="text" name="descriptionOtherConvenience" class="form-control"></td>
                         </tr>
                         <tr id="poolArea" style="display: none">
                             <td>Pool 's Area</td>
-                            <td><input type="text" name="pool_area" class="form-control"></td>
+                            <td><input type="text" name="poolArea" class="form-control"></td>
                         </tr>
-                        <tr id="number_of_floors" style="display: none">
+                        <tr id="numberOfFloors" style="display: none">
                             <td>Number of Floors</td>
-                            <td><input type="text" name="number_of_floors" class="form-control"></td>
+                            <td><input type="text" name="numberOfFloors" class="form-control"></td>
                         </tr>
-                        <tr id="facility_free" style="display: none">
+                        <tr id="facilityFree" style="display: none">
                             <td>Facility Free</td>
-                            <td><input type="text" name="facility_free" class="form-control"></td>
+                            <td><input type="text" name="facilityFree" class="form-control"></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -110,33 +110,33 @@
     function selectServiceType(type) {
         let selectType = type.value;
         switch (selectType) {
-            case "villa":
+            case "1":
                 document.getElementById("standardRoom").style.display = "table-row";
                 document.getElementById("descriptionOtherConvenience").style.display = "table-row";
                 document.getElementById("poolArea").style.display = "table-row";
-                document.getElementById("number_of_floors").style.display = "table-row";
-                document.getElementById("facility_free").style.display = "none";
+                document.getElementById("numberOfFloors").style.display = "table-row";
+                document.getElementById("facilityFree").style.display = "none";
                 break;
-            case "house":
+            case "2":
                 document.getElementById("standardRoom").style.display = "table-row";
                 document.getElementById("descriptionOtherConvenience").style.display = "table-row";
                 document.getElementById("poolArea").style.display = "none";
-                document.getElementById("number_of_floors").style.display = "table-row";
-                document.getElementById("facility_free").style.display = "none";
+                document.getElementById("numberOfFloors").style.display = "table-row";
+                document.getElementById("facilityFree").style.display = "none";
                 break;
-            case "room":
+            case "3":
                 document.getElementById("standardRoom").style.display = "none";
                 document.getElementById("descriptionOtherConvenience").style.display = "none";
                 document.getElementById("poolArea").style.display = "none";
-                document.getElementById("number_of_floors").style.display = "none";
-                document.getElementById("facility_free").style.display = "table-row";
+                document.getElementById("numberOfFloors").style.display = "none";
+                document.getElementById("facilityFree").style.display = "table-row";
                 break;
             default:
                 document.getElementById("standardRoom").style.display = "none";
                 document.getElementById("descriptionOtherConvenience").style.display = "none";
                 document.getElementById("poolArea").style.display = "none";
-                document.getElementById("number_of_floors").style.display = "none";
-                document.getElementById("facility_free").style.display = "none";
+                document.getElementById("numberOfFloors").style.display = "none";
+                document.getElementById("facilityFree").style.display = "none";
         }
     }
 </script>

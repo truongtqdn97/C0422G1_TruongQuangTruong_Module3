@@ -22,4 +22,7 @@ public interface IFacilityService {
     List<RentType> selectRentType();
 
     List<FacilityType> selectFacilityTypeId();
+
+    List<Facility> searchByName(String name);
+
 }

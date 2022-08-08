@@ -51,4 +51,9 @@ public class FacilityService implements IFacilityService {
     public List<FacilityType> selectFacilityTypeId() {
         return facilityRepository.selectFacilityTypeId();
     }
+
+    @Override
+    public List<Facility> searchByName(String name) {
+        return facilityRepository.searchByName(name);
+    }
 }
