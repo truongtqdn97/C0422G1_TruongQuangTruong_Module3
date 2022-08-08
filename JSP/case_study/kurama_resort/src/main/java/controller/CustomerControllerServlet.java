@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerControllerServlet", urlPatterns = {"/customer"})
 public class CustomerControllerServlet extends HttpServlet {
@@ -126,6 +127,7 @@ public class CustomerControllerServlet extends HttpServlet {
     }
 
     private void createNewCustomer(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher dispatcher;
         String name = request.getParameter("name");
         LocalDate birthday = LocalDate.parse(request.getParameter("birthday"));
         int gender = Integer.parseInt(request.getParameter("gender"));
@@ -137,13 +139,29 @@ public class CustomerControllerServlet extends HttpServlet {
         List<Customer> customerList = customerService.selectCustomerIncludeDeleted();
         int pId = customerList.get(customerList.size() - 1).getpId() + 1;
         Customer customer = new Customer(pId, name, birthday, gender, idCard, phoneNumber, email, customerType, address);
+
+        Map<String, String> mapErrors = this.customerService.insertCheckedCustomer(customer);
+        if (mapErrors.size()>0){
+            for (Map.Entry<String, String> entry: mapErrors.entrySet()){
+                request.setAttribute(entry.getKey(), entry.getValue());
+            }
+            dispatcher = request.getRequestDispatcher("view/customer/create.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         boolean check = customerService.insertCustomer(customer);
         String message = "";
         if (check){
             message = "Create new Customer successfully!";
         }else message = "Can't create new Customer!";
         customerList = customerService.selectAllCustomer();
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
+         dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
 
         request.setAttribute("message", message);
         request.setAttribute("customerList", customerList);

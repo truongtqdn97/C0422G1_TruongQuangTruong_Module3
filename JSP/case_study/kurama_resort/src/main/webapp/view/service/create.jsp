@@ -34,19 +34,31 @@
 
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="name" id="name" class="form-control"></td>
+                            <td>
+                                <input type="text" name="name" id="name" class="form-control">
+                                <div style="color: red">${nameRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Area</td>
-                            <td><input type="text" name="area" id="area" class="form-control"></td>
+                            <td>
+                                <input type="text" name="area" id="area" class="form-control">
+                                <div style="color: red">${areaRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Cost</td>
-                            <td><input type="number" name="cost" id="cost" class="form-control"></td>
+                            <td>
+                                <input type="number" name="cost" id="cost" class="form-control">
+                                <div style="color: red">${costRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Max people</td>
-                            <td><input type="number" name="maxPeople" class="form-control"></td>
+                            <td>
+                                <input type="number" name="maxPeople" class="form-control">
+                                <div style="color: red">${maxPeopleRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Rental type</td>
@@ -85,11 +97,17 @@
                         </tr>
                         <tr id="poolArea" style="display: none">
                             <td>Pool 's Area</td>
-                            <td><input type="text" name="poolArea" class="form-control"></td>
+                            <td>
+                                <input type="text" name="poolArea" class="form-control">
+                                <div style="color: red">${poolAreaRegex}</div>
+                            </td>
                         </tr>
                         <tr id="numberOfFloors" style="display: none">
                             <td>Number of Floors</td>
-                            <td><input type="text" name="numberOfFloors" class="form-control"></td>
+                            <td>
+                                <input type="text" name="numberOfFloors" class="form-control">
+                                <div style="color: red">${numberOfFloors}</div>
+                            </td>
                         </tr>
                         <tr id="facilityFree" style="display: none">
                             <td>Facility Free</td>

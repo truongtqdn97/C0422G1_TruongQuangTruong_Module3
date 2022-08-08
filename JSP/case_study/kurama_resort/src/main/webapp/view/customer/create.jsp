@@ -29,7 +29,10 @@
                     <table>
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="name" id="name" class="form-control"></td>
+                            <td>
+                                <input type="text" name="name" id="name" class="form-control">
+                                <div style="color: red">${nameRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Birthday</td>
@@ -46,15 +49,24 @@
                         </tr>
                         <tr>
                             <td>Identify Card</td>
-                            <td><input type="text" name="idCard" class="form-control"></td>
+                            <td>
+                                <input type="text" name="idCard" class="form-control">
+                                <div style="color: red">${idCardRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Phone Number</td>
-                            <td><input type="text" name="phoneNumber" class="form-control"></td>
+                            <td>
+                                <input type="text" name="phoneNumber" class="form-control">
+                                <div style="color: red">${phoneNumberRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><input type="text" name="email" class="form-control"></td>
+                            <td>
+                                <input type="text" name="email" class="form-control"> emailRegex
+                                <div style="color: red">${emailRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Address</td>

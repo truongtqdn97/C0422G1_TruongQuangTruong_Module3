@@ -1,10 +1,12 @@
 package service.facility;
 
+import model.Customer;
 import model.Facility;
 import model.FacilityType;
 import model.RentType;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IFacilityService {
     List<Facility> selectAllFacility();
@@ -24,5 +26,7 @@ public interface IFacilityService {
     List<FacilityType> selectFacilityTypeId();
 
     List<Facility> searchByName(String name);
+
+    Map<String, String> insertCheckedFacility(Facility facility);
 
 }

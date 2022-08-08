@@ -4,6 +4,7 @@ import model.Customer;
 import model.CustomerType;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ICustomerService {
     List<Customer> selectAllCustomer();
@@ -22,4 +23,5 @@ public interface ICustomerService {
 
     List<Customer> selectCustomerIncludeDeleted();
 
+    Map<String, String> insertCheckedCustomer(Customer customer);
 }

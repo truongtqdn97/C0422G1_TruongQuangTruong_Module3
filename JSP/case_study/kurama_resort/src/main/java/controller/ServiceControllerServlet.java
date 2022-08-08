@@ -11,6 +11,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "ServiceControllerServlet", urlPatterns = {"/service"})
 public class ServiceControllerServlet extends HttpServlet {
@@ -172,6 +173,7 @@ public class ServiceControllerServlet extends HttpServlet {
         //                    int rentTypeId, int facilityTypeId, String standardRoom,
         //                    String descriptionOtherConvenience, double poolArea, int numberOfFloors,
         //                    String facilityFree)
+        RequestDispatcher dispatcher;
         String name = request.getParameter("name");
         int area = Integer.parseInt(request.getParameter("area"));
         double cost = Double.parseDouble(request.getParameter("cost"));
@@ -197,6 +199,22 @@ public class ServiceControllerServlet extends HttpServlet {
         int fId = facilityList.get(facilityList.size() - 1).getFacilityId() + 1;
         Facility facility = new Facility(fId, name, area, cost, maxPeople, rentTypeId, facilityTypeId, standardRoom,
                 descriptionOtherConvenience, poolArea, numberOfFloors, facilityFree);
+
+        Map<String, String> mapErrors = this.facilityService.insertCheckedFacility(facility);
+        if (mapErrors.size()>0){
+            for (Map.Entry<String, String> entry: mapErrors.entrySet()){
+                request.setAttribute(entry.getKey(), entry.getValue());
+            }
+            dispatcher = request.getRequestDispatcher("view/service/create.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         boolean rowCreated = facilityService.insertFacility(facility);
         String message = "";
         if (rowCreated){
@@ -211,7 +229,7 @@ public class ServiceControllerServlet extends HttpServlet {
         request.setAttribute("rentTypeList", rentTypeList);
         request.setAttribute("message", message);
         request.setAttribute("facilityList", facilityList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/service/list.jsp");
+        dispatcher = request.getRequestDispatcher("view/service/list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

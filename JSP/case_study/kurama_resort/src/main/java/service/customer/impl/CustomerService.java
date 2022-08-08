@@ -6,10 +6,20 @@ import repository.customer.ICustomerRepository;
 import repository.customer.impl.CustomerRepository;
 import service.customer.ICustomerService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerService implements ICustomerService {
     private ICustomerRepository customerRepository = new CustomerRepository();
+
+    private final String NAME_REREX = "^((([A-Z]+)([a-z]+)\\s)+)(([A-Z]+)*)$";
+
+    private final String PHONE_NUMBER_REGEX = "^((090)|(091)|(\\(84\\)\\+90)|(\\(84\\)\\+91))(([0-9]){7})$";
+
+    private final String IDCARD_REGEX = "^\\d{9}$";
+
+    private final String EMAIL_REGEX = "^[\\w\\_]+\\@[a-z]+\\.[a-z]+$";
     @Override
     public List<Customer> selectAllCustomer() {
         return customerRepository.selectAllCustomer();
@@ -48,5 +58,44 @@ public class CustomerService implements ICustomerService {
     @Override
     public List<Customer> selectCustomerIncludeDeleted() {
         return customerRepository.selectCustomerIncludeDeleted();
+    }
+
+    @Override
+    public Map<String, String> insertCheckedCustomer(Customer customer) {
+        Map<String, String> mapErrors = new HashMap<>();
+        if (!customer.getName().isEmpty()){
+            if (!customer.getName().matches(NAME_REREX)){
+                mapErrors.put("nameRegex", "Please input right format!");
+            }
+        }else {
+            mapErrors.put("nameRegex", "Please input name!");
+        }
+        if (!customer.getPhoneNumber().isEmpty()){
+            if (!customer.getPhoneNumber().matches(PHONE_NUMBER_REGEX)){
+                mapErrors.put("phoneNumberRegex", "Please input right format!");
+            }
+        }else {
+            mapErrors.put("phoneNumberRegex", "Please input phone number!");
+        }
+        if (!customer.getIdentifyCard().isEmpty()){
+            if (!customer.getIdentifyCard().matches(IDCARD_REGEX)){
+                mapErrors.put("idCardRegex", "Please input right format!");
+            }
+        }else {
+            mapErrors.put("idCardRegex", "Please input Identify card number!");
+        }
+        if (!customer.getEmail().isEmpty()){
+            if (!customer.getEmail().matches(EMAIL_REGEX)){
+                mapErrors.put("emailRegex", "Please input right format!");
+            }
+        }else {
+            mapErrors.put("emailRegex", "Please input email address!");
+        }
+
+
+        if (mapErrors.size()==0){
+            this.customerRepository.insertCustomer(customer);
+        }
+        return mapErrors;
     }
 }
