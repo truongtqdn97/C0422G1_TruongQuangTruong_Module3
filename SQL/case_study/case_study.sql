@@ -31,6 +31,7 @@ create table nhan_vien (
     ma_vi_tri int not null,
     ma_trinh_do int not null,
     ma_bo_phan int not null,
+    `status` bit(1) default 1,
     foreign key (ma_vi_tri)
         references vi_tri (ma_vi_tri),
     foreign key (ma_trinh_do)
@@ -70,7 +71,8 @@ create table dich_vu (
     mo_ta_tien_nghi_khac varchar(45),
     dien_tich_ho_boi double,
     so_tang int,
-    dich_vu_mien_phi_di_kem text
+    dich_vu_mien_phi_di_kem text,
+    `status` bit(1) default 1
 );
 
 create table khach_hang (
@@ -96,6 +98,7 @@ create table hop_dong (
     ma_nhan_vien int not null,
     ma_khach_hang int not null,
     ma_dich_vu int not null,
+	`status` bit(1) default 1,
     foreign key (ma_nhan_vien)
         references nhan_vien (ma_nhan_vien),
     foreign key (ma_khach_hang)
@@ -278,4 +281,3 @@ INSERT INTO `case_study`.`hOp_Dong_chi_Tiet` (`ma_Hop_donG_chi_Tiet`, `ma_hop_do
 vALUES ('8', '12', '2', '2');
 
 
-select * from khach_hang where `status` = 1;

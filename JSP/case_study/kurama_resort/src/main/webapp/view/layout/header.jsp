@@ -17,7 +17,9 @@
 <div class="container my-3">
     <div class="row">
         <div class="col-md-6">
-            <img src="/img/icons8-traveler-100.png" height="50">
+            <a href="/index.jsp">
+                <img src="/img/icons8-traveler-100.png" height="50">
+            </a>
         </div>
         <div class="col-md-6 d-flex justify-content-md-end align-items-md-center">
             <p class="text-light">Tên người đăng nhập</p>

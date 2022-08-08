@@ -26,30 +26,30 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active text-light" aria-current="page" href="/index.jsp">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Employee</a>
+                                <a class="nav-link text-light" href="/employee">Employee</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="/customer">Customer</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownService" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle text-light" href="/service" id="navbarDropdownService" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Service
                                 </a>
                                 <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdownService">
-                                    <li><a class="dropdown-item " href="#">List Service</a></li>
-                                    <li><a class="dropdown-item " href="#">Add Service</a></li>
+                                    <li><a class="dropdown-item " href="/service">List Service</a></li>
+                                    <li><a class="dropdown-item " href="/service?action=create">Add Service</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownContract" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle text-light" href="/contract" id="navbarDropdownContract" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Contract
                                 </a>
                                 <ul class="dropdown-menu bg-light"  aria-labelledby="navbarDropdownContract">
-                                    <li><a class="dropdown-item " href="#">List Contract</a></li>
-                                    <li><a class="dropdown-item " href="#">Add Contract</a></li>
+                                    <li><a class="dropdown-item " href="/contract">List Contract</a></li>
+                                    <li><a class="dropdown-item " href="/contract?action=create">Add Contract</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -24,33 +24,6 @@
 <%@ include file="./view/layout/navbar.jsp" %>
 
 
-<%--body--%>
-<%--<div class="row">--%>
-<%--    <div class="col-md-3">--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-md-12">--%>
-<%--                <a href="#">Item one</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-md-12">--%>
-<%--                <a href="#">Item two</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-md-12">--%>
-<%--                <a href="#">Item three</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <div class="col-md-9 text-light d-flex justify-content-md-center align-items-md-center">--%>
-<%--        <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"--%>
-<%--               autoplay muted loop width="100%">--%>
-
-<%--        </video>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
 
 
 <!-- home section starts  -->
@@ -65,7 +38,7 @@
                         <span>Never Stop</span>
                         <h3><strong>Exploring</strong></h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn2 text-light">Get Started</a>
+                        <a href="/service" class="btn2 text-light">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +49,7 @@
                         <span>Make Tour</span>
                         <h3>Amazing</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn2 text-light">Get Started</a>
+                        <a href="/service" class="btn2 text-light">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -87,7 +60,7 @@
                         <span>Explore The</span>
                         <h3>New World At Furama</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn2">Get Started</a>
+                        <a href="/service" class="btn2">Get Started</a>
                     </div>
                 </div>
             </div>
