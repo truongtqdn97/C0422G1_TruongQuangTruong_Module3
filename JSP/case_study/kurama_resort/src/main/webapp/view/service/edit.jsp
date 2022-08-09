@@ -16,11 +16,11 @@
 </head>
 <body>
 <%--header--%>
-<%@ include file = "../layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 
 <%--nav bar--%>
-<%@ include file = "../layout/navbar.jsp" %>
+<%@ include file="../layout/navbar.jsp" %>
 
 
 <div class="container d-flex justify-content-md-center" style="margin-top: 20px">
@@ -35,7 +35,7 @@
                             <td>Name</td>
                             <td><input type="text" name="name"
                                        id="name" class="form-control"
-                                        value="${facility.name}"></td>
+                                       value="${facility.name}"></td>
                         </tr>
                         <tr>
                             <td>Area</td>
@@ -62,7 +62,8 @@
                                     <c:forEach items="${rentTypeList}" var="rentType">
                                         <c:choose>
                                             <c:when test="${rentType.rentTypeId==facility.rentTypeId}">
-                                                <option value="${facility.rentTypeId}" selected>${rentType.rentTypeName}</option>
+                                                <option value="${facility.rentTypeId}"
+                                                        selected>${rentType.rentTypeName}</option>
                                             </c:when>
                                             <c:otherwise>
                                                 <option value="${rentType.rentTypeId}">${rentType.rentTypeName}</option>
@@ -77,11 +78,13 @@
                         <tr>
                             <td>Service 's Type</td>
                             <td>
-                                <select name="facilityType" id="serviceType" onchange="selectServiceType(this)" class="form-select">
+                                <select name="facilityType" id="serviceType" onchange="selectServiceType(this)"
+                                        class="form-select">
                                     <c:forEach items="${facilityTypeList}" var="facilityType">
                                         <c:choose>
                                             <c:when test="${facilityType.facilityTypeId==facility.facilityTypeId}">
-                                                <option value="${facilityType.facilityTypeId}" selected>${facilityType.facilityTypeName}</option>
+                                                <option value="${facilityType.facilityTypeId}"
+                                                        selected>${facilityType.facilityTypeName}</option>
                                             </c:when>
                                             <c:otherwise>
                                                 <option value="${facilityType.facilityTypeId}">${facilityType.facilityTypeName}</option>
@@ -165,6 +168,32 @@
                 document.getElementById("poolArea").style.display = "none";
                 document.getElementById("numberOfFloors").style.display = "none";
                 document.getElementById("facilityFree").style.display = "none";
+        }
+    }
+
+    window.onload = function () {
+        if (document.getElementById("serviceType").value == 1) {
+            document.getElementById("standardRoom").style.display = "table-row";
+            document.getElementById("descriptionOtherConvenience").style.display = "table-row";
+            document.getElementById("poolArea").style.display = "table-row";
+            document.getElementById("numberOfFloors").style.display = "table-row";
+            document.getElementById("facilityFree").style.display = "none";
+        }
+        if (document.getElementById("serviceType").value == 2) {
+
+
+            document.getElementById("standardRoom").style.display = "table-row";
+            document.getElementById("descriptionOtherConvenience").style.display = "table-row";
+            document.getElementById("poolArea").style.display = "none";
+            document.getElementById("numberOfFloors").style.display = "table-row";
+            document.getElementById("facilityFree").style.display = "none";
+        }
+        if (document.getElementById("serviceType").value == 3) {
+            document.getElementById("standardRoom").style.display = "none";
+            document.getElementById("descriptionOtherConvenience").style.display = "none";
+            document.getElementById("poolArea").style.display = "none";
+            document.getElementById("numberOfFloors").style.display = "none";
+            document.getElementById("facilityFree").style.display = "table-row";
         }
     }
 </script>

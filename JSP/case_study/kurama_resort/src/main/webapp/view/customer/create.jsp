@@ -36,7 +36,10 @@
                         </tr>
                         <tr>
                             <td>Birthday</td>
-                            <td><input type="date" name="birthday" id="birthday" class="form-control"></td>
+                            <td>
+                                <input type="date" name="birthday" id="birthday" class="form-control">
+                                <div style="color: red">${birthdayRegex}</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Gender</td>
@@ -64,7 +67,7 @@
                         <tr>
                             <td>Email</td>
                             <td>
-                                <input type="text" name="email" class="form-control"> emailRegex
+                                <input type="text" name="email" class="form-control">
                                 <div style="color: red">${emailRegex}</div>
                             </td>
                         </tr>

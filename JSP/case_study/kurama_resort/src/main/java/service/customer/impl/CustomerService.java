@@ -13,7 +13,7 @@ import java.util.Map;
 public class CustomerService implements ICustomerService {
     private ICustomerRepository customerRepository = new CustomerRepository();
 
-    private final String NAME_REREX = "^((([A-Z]+)([a-z]+)\\s)+)(([A-Z]+)*)$";
+    private final String NAME_REREX = "^((([A-Z]+)([a-z]+)\\s)+)(([A-Z]+[a-z]*)*)$";
 
     private final String PHONE_NUMBER_REGEX = "^((090)|(091)|(\\(84\\)\\+90)|(\\(84\\)\\+91))(([0-9]){7})$";
 
@@ -92,6 +92,9 @@ public class CustomerService implements ICustomerService {
             mapErrors.put("emailRegex", "Please input email address!");
         }
 
+        if (customer.getBirthday()==null){
+            mapErrors.put("birthdayRegex", "Please input birthday!");
+        }
 
         if (mapErrors.size()==0){
             this.customerRepository.insertCustomer(customer);

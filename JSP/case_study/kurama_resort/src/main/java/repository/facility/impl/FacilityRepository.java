@@ -249,7 +249,7 @@ public class FacilityRepository implements IFacilityRepository {
             ps.setDouble(3, facility.getCost());
             ps.setInt(4, facility.getMaxPeople());
             ps.setInt(5, facility.getRentTypeId());
-            ps.setInt(6, facility.getFacilityId());
+            ps.setInt(6, facility.getFacilityTypeId());
             ps.setString(7, standardRoom);
             ps.setString(8, descriptionOtherConvenience);
             ps.setDouble(9, poolArea);

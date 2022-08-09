@@ -29,9 +29,9 @@
             <a href="/customer?action=create" class="btn btn-success">Add new customer</a>
         </div>
         <div class="col-md-3">
-            <form>
-                <input type="text" hidden id="mess" value="${message}">
-            </form>
+            <%--            <form>--%>
+            <%--                <input type="text" hidden id="mess" value="${message}">--%>
+            <%--            </form>--%>
         </div>
 
         <div class="col-md-6 d-flex justify-content-end">
@@ -63,17 +63,17 @@
                     <th scope="col">Email</th>
                     <th scope="col">Customer Type</th>
                     <th scope="col">Address</th>
-                    <th scope="col" style="text-align: center">Action</th>
-                    <th></th>
+                    <th scope="col" style="text-align: center">Edit</th>
+                    <th scope="col" style="text-align: center">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 <%--                Customer(int pId, String name, LocalDate birthday,
                                     int gender, String identifyCard, String phoneNumber,
                                     String email, int customerType, String address)--%>
-                <c:forEach items="${customerList}" var="customer">
+                <c:forEach items="${customerList}" var="customer" varStatus="loop">
                     <tr class="table-light">
-                        <td>${customer.pId}</td>
+                        <td>${loop.count}</td>
                         <td>${customer.name}</td>
                         <td>${customer.birthday}</td>
                         <c:if test="${customer.gender==0}">
@@ -147,12 +147,31 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="noticeMessage" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" hidden id="mess" value="${message}">
+                <p id="showMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
 
-
+    </div>
+</div>
 
 
 <script src="/jquery/jquery-3.5.1.min.js"></script>
 <script src="/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/datatables/js/dataTables.bootstrap5.min.js"></script>
 <script src="/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 <script>
     <%--    onclick="showModalDelete('${customer.pId}','${customer.name}')"--%>
@@ -170,11 +189,20 @@
         });
     });
 
+    // window.onload = function () {
+    //     let mess = document.getElementById("mess").value;
+    //     if (mess != null && mess  !== "") {
+    //         alert(mess);
+    //     }
+    // }
 
     window.onload = function () {
         let mess = document.getElementById("mess").value;
-        if (mess != null && mess  !== "") {
-            alert(mess);
+        document.getElementById("showMessage").innerText = mess;
+        if (mess != null && mess !== "") {
+            $(document).ready(function () {
+                $("#noticeMessage").modal("show");
+            });
         }
     }
 

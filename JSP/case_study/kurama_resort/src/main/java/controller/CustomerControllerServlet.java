@@ -11,6 +11,8 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -97,9 +99,11 @@ public class CustomerControllerServlet extends HttpServlet {
             message = "Update successfully!";
         }else message = "Can't update!";
         List<Customer> customerList = customerService.selectAllCustomer();
+        List<CustomerType> customerTypeList = customerService.selectCustomerType();
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
         request.setAttribute("message", message);
         request.setAttribute("customerList", customerList);
+        request.setAttribute("customerTypeList", customerTypeList);
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -129,7 +133,13 @@ public class CustomerControllerServlet extends HttpServlet {
     private void createNewCustomer(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher dispatcher;
         String name = request.getParameter("name");
-        LocalDate birthday = LocalDate.parse(request.getParameter("birthday"));
+        LocalDate birthday = null;
+        try {
+            birthday = LocalDate.parse(request.getParameter("birthday"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+//        birthday = LocalDate.parse(request.getParameter("birthday"));
         int gender = Integer.parseInt(request.getParameter("gender"));
         String idCard = request.getParameter("idCard");
         String phoneNumber = request.getParameter("phoneNumber");
@@ -154,17 +164,17 @@ public class CustomerControllerServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
-        boolean check = customerService.insertCustomer(customer);
         String message = "";
-        if (check){
+        if (mapErrors.isEmpty()){
             message = "Create new Customer successfully!";
         }else message = "Can't create new Customer!";
         customerList = customerService.selectAllCustomer();
-         dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
+        List<CustomerType> customerTypeList = customerService.selectCustomerType();
 
+        dispatcher = request.getRequestDispatcher("view/customer/list.jsp");
         request.setAttribute("message", message);
         request.setAttribute("customerList", customerList);
+        request.setAttribute("customerTypeList", customerTypeList);
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -210,9 +220,12 @@ public class CustomerControllerServlet extends HttpServlet {
             message = "Delete completely!";
         } else message = "Can't delete!";
         List<Customer> customerList = customerService.selectAllCustomer();
+        List<CustomerType> customerTypeList = customerService.selectCustomerType();
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/customer/list.jsp");
         request.setAttribute("message", message);
         request.setAttribute("customerList", customerList);
+        request.setAttribute("customerTypeList", customerTypeList);
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
