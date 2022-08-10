@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div class="mt-3" style="font-size: 14px">
+<div style="font-size: 14px">
   <footer class="bg-secondary bg-gradient text-center text-lg-start text-white">
     <div class="container-fluid pt-md-1">
       <!--Grid row-->

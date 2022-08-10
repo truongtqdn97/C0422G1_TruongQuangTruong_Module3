@@ -155,6 +155,7 @@ public class CustomerControllerServlet extends HttpServlet {
             for (Map.Entry<String, String> entry: mapErrors.entrySet()){
                 request.setAttribute(entry.getKey(), entry.getValue());
             }
+            request.setAttribute("customer", customer);
             dispatcher = request.getRequestDispatcher("view/customer/create.jsp");
             try {
                 dispatcher.forward(request, response);

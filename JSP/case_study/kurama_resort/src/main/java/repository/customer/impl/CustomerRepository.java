@@ -18,7 +18,7 @@ public class CustomerRepository implements ICustomerRepository {
     private final String SELECT_ALL_CUSTOMER_INCLUDE_DELETED = "select * from khach_hang";
     private final String SELECT_CUSTOMER_BY_ID = "select * from khach_hang" +
                                                     " where ma_khach_hang = ? ;";
-    private final String INSERT_CUSTOMER = "insert into `khach_Hang` (" +
+    private final String INSERT_CUSTOMER = "insert into `khach_hang` (" +
             "`ma_khach_hang`, " +
             "`ma_loai_khach`, " +
             "`ho_ten`, " +

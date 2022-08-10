@@ -30,14 +30,17 @@
                         <tr>
                             <td>Name</td>
                             <td>
-                                <input type="text" name="name" id="name" class="form-control">
+                                <input type="text" name="name" id="name"
+                                       class="form-control"
+                                value="${customer.name}">
                                 <div style="color: red">${nameRegex}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>Birthday</td>
                             <td>
-                                <input type="date" name="birthday" id="birthday" class="form-control">
+                                <input type="date" name="birthday" id="birthday" class="form-control"
+                                       value="${customer.birthday}">
                                 <div style="color: red">${birthdayRegex}</div>
                             </td>
                         </tr>
@@ -53,27 +56,31 @@
                         <tr>
                             <td>Identify Card</td>
                             <td>
-                                <input type="text" name="idCard" class="form-control">
+                                <input type="text" name="idCard" class="form-control"
+                                       value="${customer.identifyCard}">
                                 <div style="color: red">${idCardRegex}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>Phone Number</td>
                             <td>
-                                <input type="text" name="phoneNumber" class="form-control">
+                                <input type="text" name="phoneNumber" class="form-control"
+                                       value="${customer.phoneNumber}">
                                 <div style="color: red">${phoneNumberRegex}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>
-                                <input type="text" name="email" class="form-control">
+                                <input type="text" name="email" class="form-control"
+                                       value="${customer.email}">
                                 <div style="color: red">${emailRegex}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td><input type="text" name="address" class="form-control"></td>
+                            <td><input type="text" name="address" class="form-control"
+                                       value="${customer.address}"></td>
                         </tr>
                         <tr>
                             <td>Customer Type</td>

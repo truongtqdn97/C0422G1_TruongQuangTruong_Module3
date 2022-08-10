@@ -19,7 +19,6 @@
 <%--header--%>
 <%@ include file="./view/layout/header.jsp" %>
 
-
 <%--nav bar--%>
 <%@ include file="./view/layout/navbar.jsp" %>
 
@@ -77,18 +76,6 @@
     </div>
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <%--footer--%>

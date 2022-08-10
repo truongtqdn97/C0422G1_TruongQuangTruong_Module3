@@ -215,9 +215,15 @@ public class ServiceControllerServlet extends HttpServlet {
             }
         }
 
-        boolean rowCreated = facilityService.insertFacility(facility);
+//        boolean rowCreated = facilityService.insertFacility(facility);
+//        String message = "";
+//        if (rowCreated){
+//            message = "Create successfully!";
+//        }else {
+//            message = "Can't create new Service!";
+//        }
         String message = "";
-        if (rowCreated){
+        if (mapErrors.isEmpty()){
             message = "Create successfully!";
         }else {
             message = "Can't create new Service!";

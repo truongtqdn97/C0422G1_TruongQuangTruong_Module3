@@ -125,6 +125,10 @@
 </div>
 
 
+
+
+
+
 <!--modal delete-->
 <div class="modal fade" id="deleteButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -147,26 +151,29 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal notice -->
 <div class="modal fade" id="noticeMessage" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
-        <div class="modal-content">
+        <div class="modal-content rounded-3 shadow">
             <div class="modal-header">
-                <h5 class="modal-title">Notice</h5>
+                <h5 class="modal-title">Furama 's notice</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input type="text" hidden id="mess" value="${message}">
+                <input type="text"  hidden id="mess" value="${message}">
                 <p id="showMessage"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
             </div>
         </div>
-
     </div>
 </div>
+
+
+
+
 
 
 <script src="/jquery/jquery-3.5.1.min.js"></script>
